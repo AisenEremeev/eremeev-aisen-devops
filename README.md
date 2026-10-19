@@ -50,6 +50,16 @@ The resulting application is bound to port 8001 on the Docker host's loopback ad
 
 ## Current verification status
 
-The two Python tests passed on Windows. Linux execution, Docker build/run,
-GitHub publication and Jenkins execution still require environment setup.
-No successful Jenkins run or Docker result is claimed yet.
+Verified on 19 October 2026 in Ubuntu 24.04 under WSL2:
+
+- Linux system script, file permissions, log searches and Git ignore rules.
+- Two application tests, including HTTP responses and environment overrides.
+- Docker image build, container lifecycle and Docker Compose up/down.
+- GitHub publication, meaningful commits and a development branch merge.
+- Jenkins builds #1 and #2 finished with SUCCESS across all five stages.
+
+Jenkins: http://127.0.0.1:8080/job/Eremeev_Aisen_DevOps/
+Application deployed by Jenkins: http://127.0.0.1:8001/
+
+Keep an Ubuntu terminal open during the demonstration. Containers use a restart
+policy so they can recover when Docker starts after a WSL restart.
