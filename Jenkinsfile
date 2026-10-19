@@ -32,7 +32,7 @@ python3 -m compileall -q app'''
                 sh '''if docker container inspect "$CONTAINER" >/dev/null 2>&1; then
   docker rm -f "$CONTAINER"
 fi
-docker run -d --name "$CONTAINER" -p 127.0.0.1:8001:8000 \\
+docker run -d --restart unless-stopped --name "$CONTAINER" -p 127.0.0.1:8001:8000 \\
   -e STUDENT_NAME -e STUDENT_SURNAME -e STUDENT_GROUP -e STUDENT_ID "$IMAGE:$BUILD_NUMBER"
 ready=0
 for attempt in $(seq 1 30); do
